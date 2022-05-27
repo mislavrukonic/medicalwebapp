@@ -1,0 +1,17 @@
+#login {
+    text-align: center;
+}
+
+.mb-3{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#not_login {
+    margin-top: 18em;
+}
+
+svg {
+    height: 200px;
+    width: 200px;
+}

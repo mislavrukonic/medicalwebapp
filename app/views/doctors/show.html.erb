@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @doctor %>
+
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <p class="lead">
+      <div>
+      <%= link_to "Edit this doctor", edit_doctor_path(@doctor), class: "btn btn-warning" %>
+      <br>
+      <br>
+      <%= link_to "Back to your view", "/welcome", class: "btn btn-warning" %>
+      </div>
+    </p>
+  </div>
+</div>
+
+

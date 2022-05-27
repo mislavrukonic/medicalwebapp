@@ -1,0 +1,2 @@
+module ClientHospitalsHelper
+end

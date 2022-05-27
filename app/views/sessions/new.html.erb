@@ -1,0 +1,21 @@
+<div class="text-center">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7.19 6.57"><defs><style>.cls-1{fill:none;stroke:#769bb5;stroke-miterlimit:10;}.cls-2{fill:#c88bbd;}</style></defs><title>Logo</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M3.56,5.86,1.33,3.63C-.75,1.56,1.48-.67,3.56,1.4,5.75-.79,8,1.44,5.79,3.63Z"/><rect class="cls-2" x="4.72" y="3.53" width="0.68" height="2.18" rx="0.34"/><rect class="cls-2" x="4.72" y="3.44" width="0.68" height="2.19" rx="0.34" transform="translate(9.6 -0.53) rotate(90)"/></g></g></svg>
+</div>
+<h1 id="login">Login to your Medical Account</h1>
+    <%= form_tag '/login' do %>
+    <div class="mb-3" style="width:511px;">
+    <%= label_tag :email%>
+    <%= text_field_tag :email, "", class: "form-control", placeholder: "email@example.com"%>
+    </div>
+    <div class="mb-3" style="width:511px;">
+    <%= label_tag :password%>
+    <%= password_field_tag :password, "", class: "form-control", placeholder: "password"%>
+    </div>
+    <div class="text-center">
+        <%= submit_tag "Login", class: "btn btn-success", id: "login-button"%>
+    </div>
+    <br>
+    <div class="text-center">
+        <%= link_to "Sign Up", new_doctor_path, class: "btn btn-success", id: "login-button"%>
+    </div>
+<%end%>

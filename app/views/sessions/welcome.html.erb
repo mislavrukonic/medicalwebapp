@@ -1,0 +1,51 @@
+<% if logged_in? && current_user.role_id == 2%>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Welcome, <%= current_user.name %></h1>
+    <hr class="my-4">
+    <p class="lead">Here are your patients:</p>
+  </div>
+</div>
+
+    <% Patient.select(Patient.arel_table[Arel.star]).where(Doctor.arel_table[:doctor_id].eq(current_user.id)).joins(
+    Patient.arel_table.join(ClientHospital.arel_table).on(
+        Patient.arel_table[:patient_id].eq(ClientHospital.arel_table[:patient_id])
+    ).join_sources
+    ).joins(
+    Patient.arel_table.join(Doctor.arel_table).on(
+        ClientHospital.arel_table[:doctor_id].eq(Doctor.arel_table[:doctor_id])
+    ).join_sources
+    ).each do |x|%>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p><%= x.name%>: <%= x.email%>
+                </div>
+                <div class="col">
+                    <%= link_to "Show this patient", x, class: "btn btn-success"%></p>
+                </div>
+            </div>
+        </div>
+    <% end %>
+
+
+    <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-6">Your actions:</h1>
+    <hr class="my-4">
+    <p class="lead">
+    <%= button_to "See your credentials", current_user, method: :get, class: "btn btn-warning" %>
+    <br>
+    <%= button_to "New patient", new_patient_path, method: :get, class: "btn btn-warning"%>
+    <br>
+    <%= button_to "Log out", logout_path, method: :delete, class: "btn btn-danger"%>
+    </p>
+  </div>
+</div>
+
+<%elsif !logged_in?%>
+<div class="text-center" id="not_login">
+    <%= button_to "You are not logged in, click here", "/login", method: :get, class: "btn btn-danger"%>
+</div>
+<%end%>

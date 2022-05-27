@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @record %>
+
+<div>
+  <%= link_to "Edit this record", edit_record_path(@record), class: "btn btn-warning" %> 
+  <br>
+  <br>
+  <%= button_to "Delete record", @record, method: :delete, class: "btn btn-warning" %>
+  <br>
+  <br>
+  <%= link_to "Back to patients", "/welcome", class: "btn btn-warning" %>
+</div>

@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Records</h1>
+
+
+<% @records.each do |x|%>
+
+    <p><%= x.doctor_comments%></p>
+    <p><%= x.last_accsessed%></p>
+    <p><%= link_to "Show this medical record", x, class: "btn btn-warning" %></p>
+<%end%>
+
+
+<%= link_to "New record", new_record_path, class: "btn btn-warning" %>
+<%= link_to "Back to your patients", "/welcome", class: "btn btn-warning" %>
