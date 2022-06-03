@@ -7,4 +7,4 @@ A simple medical webapp.
 - Rails version 7.0.2
 
 - This webapp features a fully functional login system with hashed passwords. It has some
-- test information to begin with and users can perform CRUD operations as needed.
+  test information to begin with and users can perform CRUD operations as needed.
